@@ -81,7 +81,7 @@ class _HomeState extends State<Home> {
                               color: _showmap ? primaryColor : Colors.white24,
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(
-                            child: Text(_isCelcius ? '°C' : '°F',
+                            child: Text(_isCelcius ? '°F' : '°C',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,

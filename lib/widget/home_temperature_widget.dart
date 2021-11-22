@@ -93,12 +93,12 @@ class _TemperatureWidgetState extends State<TemperatureWidget> {
               Text(
                 _isCelcius ? temp.toInt().toString() : farenhit.toString(),
                 style: TextStyle(
-                    fontSize: 150,
+                    fontSize: kheight(12, context),
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 25),
+                padding: EdgeInsets.only(top: kheight(2, context)),
                 child: Text(
                   _isCelcius ? '°C' : '°F',
                   style: TextStyle(
