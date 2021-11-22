@@ -12,5 +12,5 @@ class Paths {
   static const String ipAddressUrl = 'http://ip-api.com/json';
   static const String bytimeUrl = '/data/2.5/onecall/timemachine?';
   static const String timeMach = '&dt=';
-  static const String place_apikey = 'Provided on request';
+  static const String place_apikey = 'AIzaSyBVDPUIilR05t1f0JaWf6mR0rvDvW6Vy1Y';
 }
