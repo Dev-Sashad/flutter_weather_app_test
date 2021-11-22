@@ -67,7 +67,7 @@ class _LocationViewState extends State<LocationView> {
                         ),
                       ),
                     ),
-                    // customXMargin(20),
+                    customXMargin(20),
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       height: 45,
