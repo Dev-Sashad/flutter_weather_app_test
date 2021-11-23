@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:scrollable_panel/scrollable_panel.dart';
+import 'package:weather_app/constant/helpers.dart';
 import 'package:weather_app/constant/locator.dart';
 import 'package:weather_app/constant/sizeconfig.dart';
 import 'package:weather_app/services/weather_services.dart';
@@ -31,7 +32,10 @@ class _HomeState extends State<Home> {
     Placemark p = _weatherService.placemark;
     bool _isCelcius = _weatherService.isCelcius;
     bool _showmap = _weatherService.showmap;
-
+    systemChrome(
+        color: _showmap
+            ? Colors.grey[100]
+            : Color(0XFF8862FC).withOpacity(0.7).withOpacity(0.7));
     return SafeArea(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -115,10 +119,10 @@ class _HomeState extends State<Home> {
                             color: _showmap ? primaryColor : Colors.white24,
                             borderRadius: BorderRadius.circular(10)),
                         child: Center(
-                          child: Text('Show Map',
+                          child: Text(_showmap ? 'Disable Map' : 'Enable Map',
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.w600)),
                         ),
                       ),

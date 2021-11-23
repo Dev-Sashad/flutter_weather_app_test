@@ -70,8 +70,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
+    systemChrome(color: Color(0XFF8862FC).withOpacity(0.7).withOpacity(0.7));
+    return SafeArea(
+        child: Scaffold(
+      backgroundColor: primaryColor,
       body: Container(
         child: Stack(
           children: [
@@ -95,7 +97,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: primaryColor),
+                          color: Colors.white),
                     ),
                   ],
                 ),
@@ -112,7 +114,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         child: CircularProgressIndicator(
                           strokeWidth: 4.0,
                           valueColor:
-                              AlwaysStoppedAnimation<Color>(Color(0XFF8862FC)),
+                              AlwaysStoppedAnimation<Color>(Colors.white),
                         ),
                       ),
                     )
@@ -121,6 +123,6 @@ class _SplashScreenState extends State<SplashScreen> {
           ],
         ),
       ),
-    );
+    ));
   }
 }

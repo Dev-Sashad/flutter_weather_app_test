@@ -333,6 +333,11 @@ class WeatherService {
       }
     } catch (e) {
       print(e.toString());
+      var result = {
+          'status': false,
+          'message': 'No Data fetched',
+        };
+        return result;
     }
   }
 }

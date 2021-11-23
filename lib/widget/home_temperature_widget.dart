@@ -43,15 +43,15 @@ class _TemperatureWidgetState extends State<TemperatureWidget> {
 
     bool _isCelcius = _weatherService.isCelcius;
     var farenhit = ((temp.toInt() * 9) ~/ 5).toInt() + 32;
-
+    Color _textColor = _showmap ? primaryColor : Colors.white;
     return Container(
       height: kheight(40, context),
       width: kwidth(90, context),
       padding: EdgeInsets.symmetric(vertical: 15),
       decoration: BoxDecoration(
-          color: _showmap ? primaryColor : Colors.white10,
+          color: Colors.white10,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.white38),
+          border: Border.all(color: _showmap ? primaryColor : Colors.white38),
           boxShadow: [BoxShadow(blurRadius: 4, color: Colors.white10)]),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,7 +65,9 @@ class _TemperatureWidgetState extends State<TemperatureWidget> {
                 fit: BoxFit.fill,
                 placeholder: (context, url) => Container(),
                 errorWidget: (context, url, error) => Icon(Icons.error),
-                color: Colors.white54,
+                color: _showmap
+                    ? Color(0XFF8862FC).withOpacity(0.6)
+                    : Colors.white54,
               ),
               customXMargin(10),
               Column(
@@ -73,13 +75,13 @@ class _TemperatureWidgetState extends State<TemperatureWidget> {
                 children: [
                   Text('Today',
                       style: TextStyle(
-                          color: Colors.white,
+                          color: _textColor,
                           fontSize: 24,
                           fontWeight: FontWeight.w600)),
                   customYMargin(10),
                   Text(formatDayMonth(dateTime).toString(),
                       style: TextStyle(
-                        color: Colors.white,
+                        color: _textColor,
                         fontSize: 12,
                       )),
                 ],
@@ -94,7 +96,7 @@ class _TemperatureWidgetState extends State<TemperatureWidget> {
                 _isCelcius ? temp.toInt().toString() : farenhit.toString(),
                 style: TextStyle(
                     fontSize: kheight(12, context),
-                    color: Colors.white,
+                    color: _textColor,
                     fontWeight: FontWeight.bold),
               ),
               Padding(
@@ -104,7 +106,7 @@ class _TemperatureWidgetState extends State<TemperatureWidget> {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      color: _textColor),
                 ),
               ),
             ],
@@ -112,7 +114,7 @@ class _TemperatureWidgetState extends State<TemperatureWidget> {
           Text(
               '${widget.placemark.locality}, ${widget.placemark.country}. ${formatHour(dateTime).toString().toLowerCase()}',
               style: TextStyle(
-                color: Colors.white,
+                color: _textColor,
                 fontSize: 16,
               )),
         ],

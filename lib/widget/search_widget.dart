@@ -105,10 +105,10 @@ class _SearchTextFieldState extends State<SearchTextField> {
         height: 45,
         width: kwidth(90, context),
         decoration: BoxDecoration(
-            color: _showmap ? primaryColor : Colors.white10,
+            color: Colors.white10,
             borderRadius: BorderRadius.horizontal(
                 left: Radius.circular(20), right: Radius.circular(20)),
-            border: Border.all(color: Colors.white10),
+            border: Border.all(color: _showmap ? primaryColor : Colors.white10),
             boxShadow: [BoxShadow(blurRadius: 4, color: Colors.white10)]),
         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,17 +144,22 @@ class _SearchTextFieldState extends State<SearchTextField> {
                     );
                     displayPredict(p, context);
                   },
-                  style: TextStyle(color: Colors.white, fontSize: 14),
+                  style: TextStyle(
+                      color: _showmap ? primaryColor : Colors.white,
+                      fontSize: 14),
                   decoration: new InputDecoration(
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.only(left: 20),
                     hintText: 'search location',
-                    hintStyle: TextStyle(color: Colors.white, fontSize: 14),
+                    hintStyle: TextStyle(
+                        color: _showmap ? primaryColor : Colors.white,
+                        fontSize: 14),
                   ),
                 ),
               ),
               IconButton(
-                  icon: Icon(Icons.search, size: 20, color: Colors.white),
+                  icon: Icon(Icons.search,
+                      size: 20, color: _showmap ? primaryColor : Colors.white),
                   onPressed: () => search(context))
             ]));
   }

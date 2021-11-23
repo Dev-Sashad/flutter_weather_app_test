@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:weather_app/constant/constant.dart';
+import 'package:weather_app/constant/helpers.dart';
 import 'package:weather_app/constant/locator.dart';
 import 'package:weather_app/constant/sizeconfig.dart';
 import 'package:weather_app/model/weather_model.dart';
@@ -26,7 +27,9 @@ class _LocationViewState extends State<LocationView> {
   Widget build(BuildContext context) {
     Placemark p = _weatherService.splacemark;
     bool _showmap = _weatherService.showmap;
-
+    systemChrome(
+        color:
+            _showmap ? Colors.grey[100] : Color(0XFF8862FC).withOpacity(0.7));
     return SafeArea(
       child: Scaffold(
         body: Stack(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter/services.dart';
+import 'package:flushbar/flushbar.dart';
 
 showToast(String message) {
   Fluttertoast.showToast(
@@ -13,6 +15,26 @@ showToast(String message) {
       // backgroundColor: AppColors.red,
       textColor: Colors.white,
       fontSize: 16.0);
+}
+
+showFlushbar(
+    {String title,
+    FlushbarPosition flushbarPosition = FlushbarPosition.BOTTOM,
+    String message,
+    BuildContext context}) {
+  return Flushbar(
+    title: title,
+    flushbarPosition: FlushbarPosition.TOP,
+    message: message,
+    duration: Duration(seconds: 2),
+  ).show(context);
+}
+
+systemChrome({Color color}) {
+  return SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: color,
+      statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.dark));
 }
 
 formatDayMonth(value) {
